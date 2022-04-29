@@ -6,34 +6,50 @@
 }
 
 body {
-    background: rgb(208, 231, 224);
+    background: #F4F4C2;
     line-height: 1.5;
 }
 
 .timer {
     font-family: sans-serif;
     padding: 5px 10px;
-    border-radius: 10px;
-    background: white;
+    border-radius: 40px;
+    background: #878ECD;
     margin: 10px auto;
-    width: 12%;
+    width: fit-content;
+}
+
+.timer span{
+    color: #F4F4C2;
+    font-size: 100px;
 }
 
 #wrapper {
     max-width: 1100px;
     margin: 20px auto;
-    width: 800px;
+    width: fit-content;
 }
 
 header {
-    background: rgb(243, 250, 224);
-    height: 200px;
+    background: #F4F4C2;
+    height: 220px;
     overflow: hidden;
 }
 
+.img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    border-radius: 40px;
+}
+
 h1, h3 {
+    color: #878ECD;
     text-align: center;
     margin: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -41,9 +57,10 @@ footer {
     padding-top: 10px;
     height: 50px;
     line-height: 50px;
-    border-top: 1px dotted #333;
+    border-top: 1px solid #878ECD;
     clear: both;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#878ECD;
 }
 
 footer ul {
@@ -66,12 +83,11 @@ footer li {
 
 
 .buttonCluster {
-    background: lightblue;
-    margin: 250px auto;
-}
-
-.buttonQ{
-    background: lightblue;
+    background: #878ECD;
+    padding: 50px;
+    margin: 100px auto 250px;
+    border-radius: 40px;
+    width: fit-content;
 }
 
 .error {
@@ -86,6 +102,8 @@ footer li {
 button { /* Default state */
     width: 100px;
     height: 100px;
+    margin: 0px 20px;
+    border: transparent;
     background: url(images/blank.png);
     display: inline-block;
 }
@@ -96,4 +114,8 @@ button:hover { /* On hover */
 
 button:focus { /* After a click */
     background: url(images/pressed.png);
+}
+
+button:disabled{
+    background: url(images/disabled.png);
 }

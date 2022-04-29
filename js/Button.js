@@ -2,7 +2,6 @@ import Timer from "./Timer.js";
 export default class Button{
     constructor(root, key){
         this.output = key;
-        root.innerHTML = this.getHTML();
         this.control = root.querySelector(".ability"+this.output);//actual button in html
     }
 
@@ -22,7 +21,5 @@ export default class Button{
         console.log(this.output);
         return this.output;
     }
-    getHTML(){
-        return '<button name="'+this.output+'" class="ability'+this.output+'" type="button"></button>';
-    }
+
 }

@@ -2,11 +2,12 @@ import Button from "./Button.js";
 
 export default class ButtonHandler{
     constructor(root){
-        this.buttons = new Array(
-            new Button(root,"q")
-            ,new Button(root,"w")
-            ,new Button(root,"e"));
-        
+        this.keys = new Array("q","w","e","r","d","f","l");
+        root.innerHTML = this.getHTML();
+        this.buttons= new Array();
+        this.keys.forEach(key => {
+            this.buttons.push(new Button(root,key));
+        })
         console.log(this.buttons);
     }
 
@@ -24,5 +25,15 @@ export default class ButtonHandler{
         this.buttons.forEach(button => {
             button.enable();
         })
+    }
+    getHTML(){
+        this.html="";
+        this.keys.forEach(key => {
+            this.html+= 
+            '<button name="'+key
+            +'" class="ability'+key
+            +'" type="button"></button>';
+        })
+        return this.html;
     }
 }

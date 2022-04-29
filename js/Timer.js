@@ -19,7 +19,7 @@ export default class Timer{
         this.buttons.disable();
         if(this.remainingSeconds === 0 ){//if there are no remaining seconds
             //eset to 120 seconds and start timer
-            this.remainingSeconds = 3;//120
+            this.remainingSeconds = 120;
             this.updateInterfaceTime();
             this.start();
         }
