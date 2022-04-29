@@ -1,32 +1,28 @@
+import Button from "./Button.js";
+
 export default class ButtonHandler{
     constructor(root){
-        root.innerHTML = ButtonHandler.getHTML();
+        this.buttons = new Array(
+            new Button(root,"q")
+            ,new Button(root,"w")
+            ,new Button(root,"e"));
         
-        this.control= root.querySelector(".control");
-
-        console.log(this.control);
+        console.log(this.buttons);
     }
 
-    updateButtonsInfo(timer){//when the timer is constructed it will run this command on every button
-        this.control.addEventListener("click", () =>{
-            timer.resetTime();
-            console.log(this.control.name);
-        });
+    updateButtonsInfo(timer){//when the timer is constructed. creates event listeners on every button
+        this.buttons.forEach(button => {
+            button.updateButtonEvent(timer);
+        })
     }
     disable(){//disables the buttons
-        this.control.disabled = "disabled";
+        this.buttons.forEach(button => {
+            button.disable();
+        })
     }
     enable(){//enablesables the buttons
-        this.control.disabled = null;
-    }
-    static getHTML(){
-        return `
-        <button name="q" class="control" type="button"></button>
-        <button name="w" class="ability2" type="button"></button>
-        <button name="e" class="ability3" type="button"></button>
-        <button name="r" class="ultimate" type="button"></button>
-        <button name="d" class="flash" type="button"></button>
-        <button name="f" class="teleport" type="button"></button>
-        <button name="l" class="ping" type="button"></button>`;
+        this.buttons.forEach(button => {
+            button.enable();
+        })
     }
 }
