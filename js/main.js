@@ -1,7 +1,7 @@
 import Timer from "./Timer.js";
-import Buttons from "./Buttons.js";
+import Buttons from "./ButtonHandler.js";
 
-var allButtons = new Buttons(
+var allButtons = new ButtonHandler(
     document.querySelector(".buttonCluster")
 );
 

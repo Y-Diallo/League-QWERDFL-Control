@@ -12,14 +12,14 @@ export default class Timer{
         this.remainingSeconds = 0;
         this.buttons = buttonArray;
         
-        this.buttons.updateButtonInfo(this);
+        this.buttons.updateButtonsInfo(this);
     }
     
     resetTime(){//method for button to reset timer after being pressed, method where input comes in
         this.buttons.disable();
         if(this.remainingSeconds === 0 ){//if there are no remaining seconds
             //eset to 120 seconds and start timer
-            this.remainingSeconds = 120;
+            this.remainingSeconds = 3;//120
             this.updateInterfaceTime();
             this.start();
         }
@@ -37,11 +37,16 @@ export default class Timer{
                 this.updateInterfaceTime();
             }
             if(this.remainingSeconds === 0){
-                this.stop();    
+                this.stop(); 
+                this.buttons.enable();   
             }
         }, 1000);
 
-        this.buttons.enable();
+        
+    }
+    stop(){
+        clearInterval(this.interval);
+        this.interval= null;
     }
     static getHTML(){
         return `
