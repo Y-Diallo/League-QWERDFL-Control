@@ -1,6 +1,6 @@
 export default class ButtonHandler{
     constructor(root){
-        root.innerHTML = Buttons.getHTML();
+        root.innerHTML = ButtonHandler.getHTML();
         
         this.control= root.querySelector(".control");
 
