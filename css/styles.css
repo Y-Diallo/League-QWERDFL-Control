@@ -12,17 +12,17 @@ body {
 
 .timer {
     font-family: sans-serif;
-    display: inline-block;
-    padding: 24px 32px;
-    border-radius: 30px;
+    padding: 5px 10px;
+    border-radius: 10px;
     background: white;
+    margin: 10px auto;
+    width: 12%;
 }
 
 #wrapper {
     max-width: 1100px;
     margin: 20px auto;
-    width: 940px;
-    margin: 0 auto;
+    width: 800px;
 }
 
 header {

@@ -11,18 +11,18 @@ export default class Timer{
         this.interval = null;
         this.remainingSeconds = 0;
         this.buttons = buttonArray;
-        this.buttons.array.forEach(button => {button.updateButtonInfo(this);});
+        
+        this.buttons.updateButtonInfo(this);
     }
     
     resetTime(){//method for button to reset timer after being pressed, method where input comes in
+        this.buttons.disable();
         if(this.remainingSeconds === 0 ){//if there are no remaining seconds
             //eset to 120 seconds and start timer
             this.remainingSeconds = 120;
+            this.updateInterfaceTime();
             this.start();
         }
-        buttons.array.forEach(element => 
-            element.disableButton()
-        ); 
     }
     updateInterfaceTime(){//updates interface
         const minutes = Math.floor(this.remainingSeconds/60);
@@ -32,17 +32,16 @@ export default class Timer{
     }
     start(){// will only be called on 120 seconds after full 120 seconds
         this.interval = setInterval(() => {
-            if(this.remainingSeconds > 0)(this.remainingSeconds--);
-            this.updateInterfaceTime;
-
+            if(this.remainingSeconds > 0){
+                this.remainingSeconds--;
+                this.updateInterfaceTime();
+            }
             if(this.remainingSeconds === 0){
                 this.stop();    
             }
         }, 1000);
 
-        buttons.array.forEach(element => {
-            element.enableButton();
-        }); 
+        this.buttons.enable();
     }
     static getHTML(){
         return `
